@@ -1,0 +1,365 @@
+<!eggsy html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Oishi! 🥰</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #FFB6C1, #FF69B4, #F8BBD9, #E1BEE7, #F3E5F5);
+            background-size: 500% 500%;
+            animation: pinkDream 12s ease infinite;
+            color: #4A148C;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        @keyframes pinkDream {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #FF1493;
+            animation: floatHeart 8s linear infinite;
+        }
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .oishi-crown {
+            font-size: 4rem;
+            display: block;
+            animation: sparkleCrown 2s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+        @keyframes sparkleCrown {
+            0%, 100% { transform: scale(1) rotate(-5deg); filter: drop-shadow(0 0 10px #FFD700); }
+            50% { transform: scale(1.1) rotate(5deg); filter: drop-shadow(0 0 25px #FFD700); }
+        }
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #FF4081, #E91E63, #AD1457);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: oishiGlow 3s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        @keyframes oishiGlow {
+            0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+            50% { filter: hue-rotate(20deg) brightness(1.2); }
+        }
+        .subtitle {
+            font-size: 1.6rem;
+            color: #880E4F;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .cute-tag {
+            font-size: 1.4rem;
+            color: #C2185B;
+            animation: blinkCute 2s infinite;
+        }
+        @keyframes blinkCute {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.7; }
+        }
+        .wishes-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .wish {
+            background: rgba(255, 245, 255, 0.95);
+            backdrop-filter: blur(15px);
+            margin: 25px auto;
+            padding: 30px;
+            border-radius: 30px;
+            border: 3px solid rgba(255, 105, 180, 0.4);
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.2);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            max-width: 700px;
+        }
+        .wish::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,182,193,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .wish:hover::before {
+            opacity: 1;
+        }
+        .wish:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 105, 180, 0.4);
+            border-color: rgba(255, 20, 147, 0.8);
+        }
+        .wish-emoji {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 20px;
+            animation: emojiTwinkle 2s infinite;
+        }
+        @keyframes emojiTwinkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(-10deg); }
+            75% { transform: scale(1.1) rotate(10deg); }
+        }
+        .wish-text {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #4A148C;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .oishi-name {
+            color: #E91E63;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .sparkle-effect {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: sparkleFloat 3s infinite;
+        }
+        @keyframes sparkleFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-50px) rotate(180deg); opacity: 0; }
+        }
+        .action-buttons {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .btn {
+            font-size: 1.3rem;
+            padding: 18px 35px;
+            margin: 10px;
+            border: none;
+            border-radius: 40px;
+            background: linear-gradient(45deg, #FF69B4, #FF1493);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            font-family: inherit;
+        }
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.6);
+        }
+        .share-btn {
+            background: linear-gradient(45deg, #00BCD4, #0097A7);
+        }
+        #customMessage {
+            margin-top: 20px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            font-size: 1.3rem;
+            display: none;
+            border: 3px dashed #FF69B4;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-bg" id="hearts"></div>
+    
+    <header class="header">
+        <div class="oishi-crown">👑🎂</div>
+        <h1>Happy Birthday Oishi!</h1>
+        <p class="subtitle">The Cutest Girl in the World 🥰</p>
+        <p class="cute-tag">You're sweeter than candy! 🍭✨</p>
+    </header>
+
+    <div class="wishes-container">
+        <div class="wish">
+            <div class="wish-emoji">🌸</div>
+            <div class="wish-text">
+                Dear <span class="oishi-name">Oishi</span>, Happy Birthday! 🎉<br>
+                You're not just cute, you're absolutely adorable! May your birthday be filled with pink balloons, 
+                delicious cake, and all the hugs you deserve! 🥰💕
+            </div>
+        </div>
+
+        <div class="wish">
+            <div class="wish-emoji">🎀</div>
+            <div class="wish-text">
+                <span class="oishi-name">Oishi</span>, the cutest princess! 👸<br>
+                Wishing you a magical birthday full of sparkles, rainbows, and all your favorite things! 
+                You make the world brighter just by being you! 🌈✨
+            </div>
+        </div>
+
+        <div class="wish">
+            <div class="wish-emoji">🐻</div>
+            <div class="wish-text">
+                Happy Birthday to the sweetest, cutest girl <span class="oishi-name">Oishi</span>! 🧸<br>
+                May your day be as cuddly and wonderful as a teddy bear hug! 
+                You're our favorite sunshine! ☀️💖
+            </div>
+        </div>
+
+        <div class="wish">
+            <div class="wish-emoji">🍭</div>
+            <div class="wish-text">
+                <span class="oishi-name">Oishi</span>, you're sweeter than all the candy in the world! 🍬<br>
+                Have the most amazing birthday filled with laughter, love, and endless cuteness! 
+                Love you lots! 🥳😘
+            </div>
+        </div>
+
+        <div class="wish">
+            <div class="wish-emoji">⭐</div>
+            <div class="wish-text">
+                To our adorable <span class="oishi-name">Oishi</span>, Happy Birthday! 🌟<br>
+                You're a twinkling star who lights up everyone's day! May all your birthday wishes 
+                come true and your smile never fade! 💫🎂
+            </div>
+        </div>
+
+        <div class="wish">
+            <div class="wish-emoji">💖</div>
+            <div class="wish-text">
+                <span class="oishi-name">Oishi</span>, the cutest girl ever! Happy Birthday! 🥰<br>
+                You're like a walking hug - warm, sweet, and impossible not to love! 
+                Have a day as perfect as you are! 🎈✨
+            </div>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <button class="btn" onclick="randomSparkle()">✨ Surprise for Oishi!</button>
+        <button class="btn share-btn" onclick="copyAllWishes()">📱 Share All Wishes</button>
+        <button class="btn" onclick="playBirthdaySong()">🎵 Birthday Song</button>
+        <div id="customMessage"></div>
+    </div>
+
+    <script>
+        // Floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartEmojis = ['💖', '💕', '💗', '💝', '💓', '🌸', '✨'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                heart.style.fontSize = (Math.random() * 0.8 + 1) + 'rem';
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 9000);
+            }, 600);
+        }
+
+        function randomSparkle() {
+            const wishes = document.querySelectorAll('.wish');
+            const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+            randomWish.scrollIntoView({ behavior: 'smooth' });
+            
+            // Add sparkle effect
+            for(let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle-effect';
+                    sparkle.innerHTML = '✨';
+                    sparkle.style.left = Math.random() * 100 + '%';
+                    sparkle.style.top = Math.random() * 100 + '%';
+                    sparkle.style.position = 'fixed';
+                    sparkle.style.zIndex = '1000';
+                    document.body.appendChild(sparkle);
+                    setTimeout(() => sparkle.remove(), 3000);
+                }, i * 100);
+            }
+            
+            alert('🎉 Special birthday sparkle just for the cutest Oishi! 🥰');
+        }
+
+        function copyAllWishes() {
+            const allWishes = Array.from(document.querySelectorAll('.wish-text')).map(w => 
+                w.innerHTML.replace(/<[^>]*>/g, '').trim()
+            ).join('\n\n---\n\n');
+            
+            navigator.clipboard.writeText(allWishes).then(() => {
+                const msg = document.getElementById('customMessage');
+                msg.innerHTML = '💕 All Oishi birthday wishes copied! Ready to share with the world! 🌍✨';
+                msg.style.display = 'block';
+                setTimeout(() => msg.style.display = 'none', 4000);
+            });
+        }
+
+        function playBirthdaySong() {
+            const song = `
+🎵 Happy Birthday to you! 🎵
+🎵 Happy Birthday dear Oishi! 🎵
+🎵 Happy Birthday to you! 🎵
+🎂 You're the cutest girl we know! 🥰
+            `;
+            alert(song);
+            
+            // Auto-trigger confetti
+            setTimeout(randomSparkle, 100);
+        }
+
+        // Click to copy individual wishes
+        document.querySelectorAll('.wish').forEach(wish => {
+            wish.addEventListener('click', function() {
+                const text = this.querySelector('.wish-text').textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    this.style.borderColor = '#FF1493';
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.borderColor = 'rgba(255, 105, 180, 0.4)';
+                        this.style.transform = '';
+                    }, 800);
+                });
+            });
+        });
+
+        // Initialize
+        createHearts();
+        setTimeout(() => {
+            document.querySelector('.wish').scrollIntoView({ behavior: 'smooth' });
+        }, 1000);
+    </script>
+</body>
+</html>
